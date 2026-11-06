@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Artemis Agent</string>
+    <string name="accessibility_service_description">Artemis Agent Accessibility Service enables autonomous AI navigation, tapping, swiping, text entry, and UI element reading on Android devices.</string>
+    <string name="overlay_permission_required">Please grant Overlay (Display over other apps) permission.</string>
+    <string name="accessibility_permission_required">Please enable Artemis Accessibility Service in Settings.</string>
+    <string name="shizuku_permission_required">Shizuku permission is optional for Advanced ADB Mode.</string>
+</resources>
