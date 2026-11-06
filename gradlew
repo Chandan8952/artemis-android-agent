@@ -20,10 +20,14 @@ cd "$SAVED" >/dev/null
 
 APP_NAME="Gradle"
 APP_BASE_NAME=`basename "$0"`
-export GRADLE_USER_HOME="/data/user/0/com.antigem.local/files/home/.gradle"
 
-# Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
-DEFAULT_JVM_OPTS='"-Xmx512m" "-Xms64m" "-Djava.io.tmpdir=/data/user/0/com.antigem.local/files/usr/tmp" "-Duser.home=/data/user/0/com.antigem.local/files/home"'
+# Support Android/Termux environment dynamically without breaking standard Linux/CI runners
+if [ -d "/data/user/0/com.antigem.local" ]; then
+    [ -z "$GRADLE_USER_HOME" ] && export GRADLE_USER_HOME="/data/user/0/com.antigem.local/files/home/.gradle"
+    DEFAULT_JVM_OPTS='"-Xmx512m" "-Xms64m" "-Djava.io.tmpdir=/data/user/0/com.antigem.local/files/usr/tmp" "-Duser.home=/data/user/0/com.antigem.local/files/home"'
+else
+    DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
+fi
 
 # Use the maximum available, or set MAX_FD != -1 to use that value.
 MAX_FD="maximum"
